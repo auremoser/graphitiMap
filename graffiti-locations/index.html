@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Graffiti Viz</title>
+	<script type="text/javascript" src="libs/jquery-1.8.2.min.js"></script>
+	<script type="text/javascript" src="libs/highcharts.js"></script>
+	<script type="text/javascript" src="libs/misods.deps.min.0.2.1.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			var ds = new Miso.Dataset({
+			  url : "data/gr_Manhattan.csv",
+			  delimiter : ","
+			});
+
+			ds.fetch({
+			  success : function() {
+			    console.log(this)
+
+			    chart = new Highcharts.Chart({
+			      chart: {
+			        renderTo: 'vizContainer',
+			        type: 'line',
+			        marginRight: 130,
+			        marginBottom: 25
+			      },
+			      title: {
+			        text: 'World Crude Oil Barrel Production (1,000) per unit',
+			        x: -20 //center
+			      },
+			      subtitle: {
+			        text: 'Src: http://www.infochimps.com/datasets/world-crude-oil-production-1980-to-2004',
+			        x: -20
+			      },
+			      xAxis: {
+			        categories: _.map(this.column("Year").data, function(year) { 
+			          return year.format("YY"); 
+			        })
+			      },
+			      yAxis: {
+			        title: {
+			          text: this.columnNames()[1]
+			        },
+			        plotLines: [{
+			          value: 0,
+			          width: 10000,
+			          color: '#808080'
+			        }]
+			      },
+			      tooltip: {
+			        formatter: function() {
+			          return '<b>'+ this.series.name +'</b><br/>'+
+			          this.x +': '+ this.y;
+			        }
+			      },
+			      legend: {
+			          layout: 'vertical',
+			          align: 'right',
+			          verticalAlign: 'top',
+			          x: -10,
+			          y: 100,
+			          borderWidth: 0
+			      },
+			      series: [{
+			          name: 'World Production',
+			          data: this.column("Crude oil production (1000 barrels per day)").data
+			      }]
+			    });
+			  }
+			});
+
+		});
+
+
+	</script>
+
+</head>
+<body>
+	<div id="vizContainer"></div>
+
+</body>
+</html>

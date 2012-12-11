@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- This CartoDB graffiti map for nyc graffiti data by Aurelia Moser @auremoser was created borrowing from code by Michael Keller, @mhkeller -->
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+  <title>Graphiti Map NYC @auremoser</title>
+  <link rel="shortcut icon" href="../img/favicon.ico" />
+  <style>body,html {width:100%; height:100%; margin:0; padding:0;}</style>
+  <link rel="stylesheet" href="css/leaflet.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <!--[if IE]><link rel="stylesheet" href="../css/leaflet.ie.css" /><![endif]-->
+  <link  href="css/cartodb-leaflet.css" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script src="js/leaflet.js"></script>
+  <script type="text/javascript" src="js/wax.leaf.min.js"></script>
+  <script type="text/javascript" src="dist/cartodb-leaflet-min.js"></script>
+  <script type="text/javascript" src="dist/cartodb-popup-min.js"></script>
+  <script type="text/javascript" src="libs/underscore-min.js"></script>
+  <!-- For geocoding -->
+  <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+  <!-- If you want to use Stamen Tiles -->
+  <script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.2.0"></script>
+  </script>
+</head>
+<body>
+  <!-- LEGEND BOX, NEED NOT BE SEPARATE FROM ADDRESS BOX -->
+  <div id="pfx_legend" style="top:4px;right:5px;">
+    <div class="pfx_legendIntro">graffiti incidents by neighborhood</div>
+    <div id="pfx_entry0" class="pfx_legendBox pfx_colorBox"></div>
+    <div id="pfx_entry1" class="pfx_legendBox pfx_colorBox"></div>
+    <div id="pfx_entry2" class="pfx_legendBox pfx_colorBox"></div>
+    <div id="pfx_entry3" class="pfx_legendBox pfx_colorBox"></div>
+    <div id="pfx_entry4" class="pfx_legendBox pfx_colorBox"></div>
+    <div id="pfx_entry5" class="pfx_legendBox pfx_colorBox"></div>
+    <div class="pfx_clearFix"></div>
+    <div class="pfx_legendBox pfx_lgndNumber"><75</div>
+    <div class="pfx_legendBox pfx_lgndNumber"><150</div>
+    <div class="pfx_legendBox pfx_lgndNumber"><225</div>
+    <div class="pfx_legendBox pfx_lgndNumber"><300</div>
+    <div class="pfx_legendBox pfx_lgndNumber"><375</div>
+    <div class="pfx_legendBox pfx_lgndNumber"><450</div>
+    <div class="pfx_clearFix"></div>
+  </div>
+
+  <!-- ADDRESS + LAYER SELECTOR BOX -->
+  <div id="pfx_rdrBox">
+    <div class="pfx_adrsBox">
+      <input class="textField textFieldActive" type="text" name="address" title="Find your county or address" value="Find your county or address" id="pfx_inputField"/><input id="pfx_inputBtn" type="submit" value="Go">
+    </div> 
+    <!-- RADIO BUTTONS TO TURN LAYERS ON AND OFF! -->
+    <div class="pfx_radioBox">
+      <input type="radio" name="group1" value="all"> all<br/>
+      <input type="radio" name="group1" value="nta" checked> <span class="pfx_buttonOne">by neighborhood</span><br/>
+      <input type="radio" name="group1" value="point"> <span class="pfx_buttonTwo">by incident</span><br/>
+    </div>
+  </div>
+
+    <!-- INCIDENT LEGEND BOX -->
+  <div id="pfx_legend2" style="top:199px;right:5px;">
+    <div class="pfx_legendIntro">graffiti incidents by borough</div>
+    <div id="pfx_entry6" class="pfx_legendBox pfx_colorBox"></div>
+    <div id="pfx_entry7" class="pfx_legendBox pfx_colorBox"></div>
+    <div id="pfx_entry8" class="pfx_legendBox pfx_colorBox"></div>
+    <div id="pfx_entry9" class="pfx_legendBox pfx_colorBox"></div>
+    <div id="pfx_entry10" class="pfx_legendBox pfx_colorBox"></div>
+    <div class="pfx_clearFix"></div>
+    <div class="pfx_legendBox pfx_lgndNumber">MAN</div>
+    <div class="pfx_legendBox pfx_lgndNumber">BKN</div>
+    <div class="pfx_legendBox pfx_lgndNumber">QNS</div>
+    <div class="pfx_legendBox pfx_lgndNumber">STI</div>
+    <div class="pfx_legendBox pfx_lgndNumber">BNX</div>
+  </div>
+  <!-- THE MAP -->
+  <div id="mapCanvas"></div>
+    
+  <!-- SOURCE LINE ATTRIBUTION -->
+  <div id="pfx_source" style="z-index:99;width:38%;left:0;">Sources: </div>
+
+  <!-- HOVER BOX -->
+  <div id="pfx_volette"></div>
+
+  <!-- TEMPLATES FOR HOVERS -->
+  <!-- POlYGON LAYER TEMPLATE -->
+  <!-- Add the values in your data to show up in hovers -->
+  <!-- The first one is the polygon layer, the second is the point -->
+  <script type="text/jst" id="pfx_hoverTable0">
+    <div><%=  count_g  %></div>
+    <div><%=  ntaname  %>, <%=  boroname  %></div>
+
+  </script>
+
+  <!-- POINT LAYER TEMPLATE -->
+  <script type="text/jst" id="pfx_hoverTable1">
+      <div><%=  status  %></div>
+      <div><%= incident_address_display %></div>
+  </script>
+
+  <script src="js/app.js"></script>
+  <script src="js/appUI.js"></script>
+</body>
+</html>

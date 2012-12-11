@@ -1,0 +1,21 @@
+{
+    "contents" : "",
+    "created" : 1350238938942.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "D228C606",
+    "lastKnownWriteTime" : 1350227390,
+    "path" : null,
+    "properties" : {
+        "contentUrl" : "content?title=Data%3A+gr_BkClosed&file=dc7fc14af0264b40a515adcaa4b4bbba.htm",
+        "displayedObservations" : 13,
+        "displayedVariables" : 3,
+        "title" : "Data: gr_BkClosed",
+        "totalObservations" : 13,
+        "variables" : 3
+    },
+    "source_on_save" : false,
+    "type" : "r_dataframe"
+}
