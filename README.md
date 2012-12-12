@@ -17,7 +17,7 @@ From the NYC.gov open data portal, I selected a dataset logging the location of 
 
 Usage
 ===========
-As with the graffitiTime repo, my interest my procedure for data cleaning and preparation as well as the stack detailed below could apply to other NYC gov datasets as accessed through socrata and visualized as a map. Preparing to rectify nyc data xy s to usable lat longs alone is worth a description.
+As with the graffitiTime repo, my procedure for data cleaning and preparation as well as the stack detailed below could apply to other NYC gov datasets as accessed through socrata and visualized as a map. Preparing to rectify nyc data xy s to usable lat longs alone is worth a description.
 
 Procedure
 ===========
