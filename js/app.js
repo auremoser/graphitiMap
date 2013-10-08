@@ -20,7 +20,7 @@
       , map = new L.Map(mapCanvas).setView(new L.LatLng(40.73402305751195, -74.00871276855469), defaultZoom)
         // If you don't want Stamen Tiles, uncomment these next two lines and comment out the Stamen line
         // there's also a Stamen.js that you can comment out too
-      , stamenUrl = 'http://tile.stamen.com/terrain/{z}/{x}/{y}.png'
+      , stamenUrl = 'http://tile.stamen.com/terrain-background/zoom/x/y.png'
       , layer = new L.TileLayer(stamenUrl, {maxZoom: 18, attribution: "Powered by Leaflet and Stamen"});
       //, layer = new L.StamenTileLayer("watercolor");
 
