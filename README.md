@@ -42,3 +42,7 @@ For the final product, I created another table in carto db of the shape files fo
 By mapping the same data, we add a localization dimension to the same information; geographic density of the tags tells us which neighborhoods are most populated by tags via choropleth and which where clusters of tags exist in particular boroughs via incident point map. From the choropleth map, we can deduce that Washington Heights and Chinatown are the most densely documented neighborhoods for all boroughs, but the most dense swaths localize to the darkest regions corresponding to the sum of a few adjacent neighborhoods, mostly in Queens, Bushwick and northeast Brooklyn. When toggled to the incident map, points of incidents are color-coded according to the borough as indicated in the legend if still “open” or “uncleaned” cases; cleaned cases are indicated as grey points (more “effaced” than their “open” counterparts. The significant density of grey in lower Manhattan and comparative dominance of brighter colors in the other boroughs suggests that a majority of cleanup attention is devoted to Manhattan (which is confirmed in the previous week’s graph data. 
 
 ![Region Map](https://raw.github.com/auremoser/images/master/graphitiMap.png)
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/auremoser/graphitimap/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
